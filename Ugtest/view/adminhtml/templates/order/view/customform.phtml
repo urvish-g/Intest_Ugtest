@@ -1,0 +1,44 @@
+<div id="popup-modal-main-order-detail-custom" style="display:none;">
+       <form method="POST" id="custom-form-order-detail">
+       	<label for="username">UserName</label>
+       	<input type="text" name="username" id="username"><br><br>
+       	<span class="ajax_responce_result"></span><br>
+       	<button type="button" id="custom-form-submit">Submit</button>
+       </form>
+</div>
+
+<script type="text/javascript">
+require([
+    'jquery', 
+    'Magento_Ui/js/modal/modal'
+    ], function($, modal) {            
+        $(document).ready(function(){  
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: 'Custom Form',
+                buttons: []
+            };              
+            $("#order-view-custom-action1").on('click',function(){                                       
+                $("#popup-modal-main-order-detail-custom").modal(options).modal('openModal');
+            });
+        });
+
+        $(document).on('click','#custom-form-submit',function(){
+        	var base = '<?php echo $block->getBaseUrl(); ?>'
+        	var url = base+"admin/ugtest/index/formsubmit"
+        	var form = $('#custom-form-order-detail')
+        	$.ajax({
+		        url: url,
+		        type: "Post",
+				data: form.serialize(), //exemple
+				dataType: 'json',
+		        success: function (response) {
+		           console.log(response)
+		           $('.ajax_responce_result').html(response.ajaxcall)
+		        }
+		    });
+        })
+    });        
+</script>
