@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">  
+<menu>
+       <add id="Intest_Ugtest::mycustomext" title="My Custom Ext" module="Intest_Ugtest" sortOrder="20" resource="Magento_Backend::content" />  
+        <add id="Intest_Ugtest::settings" title="Settings"  module="Intest_Ugtest" sortOrder="1" action="menuitem/index/index" parent="Intest_Ugtest::mycustomext" resource="Magento_Backend::content" />
+
+       <add id="Intest_Ugtest::abc" title="Abc"  module="Intest_Ugtest" sortOrder="1" action="menuitem/index/index" parent="Intest_Ugtest::mycustomext" resource="Magento_Backend::content" />
+
+       <add id="Intest_Ugtest::xyz" title="Xyz"  module="Intest_Ugtest" sortOrder="1" action="menuitem/index/index" parent="Intest_Ugtest::mycustomext" resource="Magento_Backend::content" />
+
+
+       <add id="Intest_Ugtest::ajaxdemo" title="Ajax Call"  module="Intest_Ugtest" sortOrder="1" action="ugtest/index/index" parent="Intest_Ugtest::mycustomext" resource="Magento_Backend::content" />
+  </menu>
+</config>
